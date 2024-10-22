@@ -63,7 +63,12 @@ function customDiceRoll(side, rollDice) {
 result = customDiceRoll(30, rollDice);
 console.log(result);
 
-// Function to roll multiple dice
+/**
+ * Function to roll multiple dice
+ * @param {*} numDice 
+ * @param {*} diceSize 
+ * @param {*} callback 
+ */
 function rollMultipleDice(numDice, diceSize, callback) {
     for (let i = 0; i < numDice; i++) {
         const result = rollDice(diceSize);
