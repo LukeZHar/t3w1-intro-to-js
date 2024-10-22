@@ -1,14 +1,17 @@
 console.log("Start of the Dice Roller!!")
 
 // Simple dice roller function
+/**
+ * Example JSDoc comment - simple Dice Roller Function
+ * @param {number} [diceSize] 
+ * @returns 
+ */
 function rollDice(diceSize = 6) {
     console.log(`Rolling a ${diceSize} sided die...`);
     let diceSide = Math.ceil(Math.random() * diceSize);
     // console.log(diceSide);
     return diceSide;
 }
-
-
 
 // Simple call, default parameter value used
 rollDice();
@@ -27,7 +30,10 @@ const rollDice25 = function () {
 
 rollDice25();
 
-// Using arrow function / Unanonymous function
+/**
+ *  Using arrow function / Unanonymous function
+ * @returns 
+ */
 const rollDice15 = () => {
     return rollDice(15);
     // or 
@@ -41,3 +47,29 @@ console.log("The side that was rolled was: " + diceSide15);
 // If we want more functionality, then we use the {}, otherwise we can use the shortened version
 const rollDice8 = () => rollDice(8);
 console.log("The side that was rolled was: " + rollDice8());
+
+
+// Implementing the callback feature/functionality/characteristic as an argument
+/**
+ * 
+ * @param {*} side 
+ * @param {*} rollDice 
+ * @returns 
+ */
+function customDiceRoll(side, rollDice) {
+    return rollDice(side); // rollDice(30)
+}
+
+result = customDiceRoll(30, rollDice);
+console.log(result);
+
+// Function to roll multiple dice
+function rollMultipleDice(numDice, diceSize, callback) {
+    for (let i = 0; i < numDice; i++) {
+        const result = rollDice(diceSize);
+        callback(result);
+    }
+}
+
+// Example of hoisting 
+rollMultipleDice(3, 6, (result) => console.log("Rolled: " + result));
